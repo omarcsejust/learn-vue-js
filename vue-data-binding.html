@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue JS Data Binding</title>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+	<div id="app" class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4" style="margin-top: 10%">
+				<input type="text" class="form-control" v-model="name"><button class="btn" v-on:click="add">+</button>
+				<ul>
+					<li v-for="name in names">{{ name }}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		app = new Vue({
+			el: "#app",
+			data: {
+				names: ['Oamr', 'Hasan'],
+				name: ''
+			},
+			methods: {
+				add: function() {
+					this.names.push(this.name);
+					this.name = ''
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>
